@@ -19,8 +19,12 @@ class HomeViewModel {
 
     @Published var searchedKeyword = PassthroughSubject<String, Never>()
     @Published var load = PassthroughSubject<Bool, Never>()
+    @Published var willShowEmail = PassthroughSubject<Int, Never>() // Has index of selected feed as parameter
+    @Published var willSendEmail = PassthroughSubject<MailModel, Never>()
 
     private var cancellables: Set<AnyCancellable> = []
+
+    private var feedModels: [FeedDisplayModel] = []
 
     init() {
         snapshot.value.appendSections([.feed])
@@ -30,14 +34,13 @@ class HomeViewModel {
             Task {
                 do {
                     let models = try await self.model.fetchFeeds()
-                    // TODO: Update UI
                     let displayModels = models.map { model in
                         FeedDisplayModel(id: model.id,
                                          title: model.title,
                                          description: model.description,
                                          image: URL(string: model.imageUrl))
                     }
-
+                    self.feedModels = displayModels
                     self.snapshot.value.appendItems(displayModels, toSection: .feed)
                     self.snapshot.send(self.snapshot.value)
 
@@ -45,6 +48,15 @@ class HomeViewModel {
                     // TODO: Display error
                 }
             }
+        }
+        .store(in: &cancellables)
+
+        willShowEmail.sink { [weak self] index in
+            guard let self = self else { return }
+
+            let feed = self.snapshot.value.itemIdentifiers[index]
+            let mail = MailModel(subject: feed.title, body: feed.description)
+            self.willSendEmail.send(mail)
         }
         .store(in: &cancellables)
     }

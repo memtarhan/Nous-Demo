@@ -7,6 +7,7 @@
 //
 
 import Combine
+import MessageUI
 import UIKit
 
 class HomeViewController: UIViewController, Nibbable {
@@ -24,6 +25,10 @@ class HomeViewController: UIViewController, Nibbable {
         setup()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     private func setup() {
         title = "Nous"
 
@@ -35,7 +40,9 @@ class HomeViewController: UIViewController, Nibbable {
 
         viewModel.snapshot
             .receive(on: DispatchQueue.main)
-            .sink { result in
+            .sink { [weak self] result in
+                guard let _ = self else { return }
+
                 print(result)
                 // TODO: Hide activity indicator or show error based on result
 
@@ -47,7 +54,23 @@ class HomeViewController: UIViewController, Nibbable {
                 }
             }
             .store(in: &cancellables)
-        
+
+        viewModel.willSendEmail
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] mail in
+                guard let self = self else { return }
+
+                if MFMailComposeViewController.canSendMail() {
+                    let mailComposeViewController = MFMailComposeViewController()
+                    mailComposeViewController.mailComposeDelegate = self
+                    mailComposeViewController.setSubject(mail.subject)
+                    mailComposeViewController.setMessageBody(mail.body, isHTML: false)
+
+                    self.present(mailComposeViewController, animated: true)
+                }
+            }
+            .store(in: &cancellables)
+
         viewModel.load.send(true)
     }
 
@@ -68,4 +91,12 @@ class HomeViewController: UIViewController, Nibbable {
 // MARK: - UITableViewDelegate
 
 extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.willShowEmail.send(indexPath.row)
+    }
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension HomeViewController: MFMailComposeViewControllerDelegate {
 }

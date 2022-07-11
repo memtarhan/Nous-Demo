@@ -38,3 +38,8 @@ extension FeedDisplayModel: Hashable {
         return (lhs.id == rhs.id) && (lhs.title == rhs.title)
     }
 }
+
+struct MailModel {
+    let subject: String
+    let body: String
+}
