@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		43831CFE287C2F4C0024D16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831CFD287C2F4C0024D16C /* AppDelegate.swift */; };
 		43831D00287C2F4C0024D16C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831CFF287C2F4C0024D16C /* SceneDelegate.swift */; };
-		43831D02287C2F4C0024D16C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D01287C2F4C0024D16C /* ViewController.swift */; };
-		43831D05287C2F4C0024D16C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43831D03287C2F4C0024D16C /* Main.storyboard */; };
 		43831D07287C2F4F0024D16C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43831D06287C2F4F0024D16C /* Assets.xcassets */; };
 		43831D0A287C2F4F0024D16C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43831D08287C2F4F0024D16C /* LaunchScreen.storyboard */; };
 		43831D15287C2F500024D16C /* NousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D14287C2F500024D16C /* NousTests.swift */; };
 		43831D1F287C2F500024D16C /* NousUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D1E287C2F500024D16C /* NousUITests.swift */; };
 		43831D21287C2F500024D16C /* NousUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D20287C2F500024D16C /* NousUITestsLaunchTests.swift */; };
+		43831D30287C30B90024D16C /* Nibbable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D2F287C30B90024D16C /* Nibbable.swift */; };
+		43831D34287C31140024D16C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D32287C31140024D16C /* HomeViewController.swift */; };
+		43831D35287C31140024D16C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43831D33287C31140024D16C /* HomeViewController.xib */; };
+		43831D37287C314F0024D16C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D36287C314F0024D16C /* HomeViewModel.swift */; };
+		43831D39287C31680024D16C /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D38287C31680024D16C /* HomeModel.swift */; };
+		43831D3D287C319C0024D16C /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831D3C287C319C0024D16C /* HomeAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,6 @@
 		43831CFA287C2F4C0024D16C /* Nous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43831CFD287C2F4C0024D16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43831CFF287C2F4C0024D16C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43831D01287C2F4C0024D16C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		43831D04287C2F4C0024D16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43831D06287C2F4F0024D16C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43831D09287C2F4F0024D16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43831D0B287C2F4F0024D16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +51,12 @@
 		43831D1A287C2F500024D16C /* NousUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NousUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43831D1E287C2F500024D16C /* NousUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NousUITests.swift; sourceTree = "<group>"; };
 		43831D20287C2F500024D16C /* NousUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NousUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43831D2F287C30B90024D16C /* Nibbable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nibbable.swift; sourceTree = "<group>"; };
+		43831D32287C31140024D16C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		43831D33287C31140024D16C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		43831D36287C314F0024D16C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		43831D38287C31680024D16C /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		43831D3C287C319C0024D16C /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,11 @@
 		43831CFC287C2F4C0024D16C /* Nous */ = {
 			isa = PBXGroup;
 			children = (
+				43831D3A287C31890024D16C /* DI */,
+				43831D2E287C30630024D16C /* Scenes */,
+				43831D2D287C305D0024D16C /* Common */,
 				43831CFD287C2F4C0024D16C /* AppDelegate.swift */,
 				43831CFF287C2F4C0024D16C /* SceneDelegate.swift */,
-				43831D01287C2F4C0024D16C /* ViewController.swift */,
-				43831D03287C2F4C0024D16C /* Main.storyboard */,
 				43831D06287C2F4F0024D16C /* Assets.xcassets */,
 				43831D08287C2F4F0024D16C /* LaunchScreen.storyboard */,
 				43831D0B287C2F4F0024D16C /* Info.plist */,
@@ -125,6 +134,49 @@
 				43831D20287C2F500024D16C /* NousUITestsLaunchTests.swift */,
 			);
 			path = NousUITests;
+			sourceTree = "<group>";
+		};
+		43831D2D287C305D0024D16C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				43831D2F287C30B90024D16C /* Nibbable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		43831D2E287C30630024D16C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				43831D31287C30FE0024D16C /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		43831D31287C30FE0024D16C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				43831D38287C31680024D16C /* HomeModel.swift */,
+				43831D32287C31140024D16C /* HomeViewController.swift */,
+				43831D33287C31140024D16C /* HomeViewController.xib */,
+				43831D36287C314F0024D16C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		43831D3A287C31890024D16C /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				43831D3B287C318E0024D16C /* Scenes */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		43831D3B287C318E0024D16C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				43831D3C287C319C0024D16C /* HomeAssembly.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +286,7 @@
 			files = (
 				43831D0A287C2F4F0024D16C /* LaunchScreen.storyboard in Resources */,
 				43831D07287C2F4F0024D16C /* Assets.xcassets in Resources */,
-				43831D05287C2F4C0024D16C /* Main.storyboard in Resources */,
+				43831D35287C31140024D16C /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +311,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43831D02287C2F4C0024D16C /* ViewController.swift in Sources */,
+				43831D34287C31140024D16C /* HomeViewController.swift in Sources */,
+				43831D37287C314F0024D16C /* HomeViewModel.swift in Sources */,
+				43831D30287C30B90024D16C /* Nibbable.swift in Sources */,
+				43831D39287C31680024D16C /* HomeModel.swift in Sources */,
 				43831CFE287C2F4C0024D16C /* AppDelegate.swift in Sources */,
+				43831D3D287C319C0024D16C /* HomeAssembly.swift in Sources */,
 				43831D00287C2F4C0024D16C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,14 +354,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		43831D03287C2F4C0024D16C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				43831D04287C2F4C0024D16C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		43831D08287C2F4F0024D16C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,7 +491,7 @@
 				INFOPLIST_FILE = Nous/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -471,7 +519,7 @@
 				INFOPLIST_FILE = Nous/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
