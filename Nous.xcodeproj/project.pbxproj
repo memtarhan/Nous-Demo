@@ -13,6 +13,8 @@
 		43480AAF287C37C300E09BE2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43480AAE287C37C300E09BE2 /* HTTPError.swift */; };
 		43480AB1287C37ED00E09BE2 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43480AB0287C37ED00E09BE2 /* APITests.swift */; };
 		43480AB3287C3C0700E09BE2 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43480AB2287C3C0700E09BE2 /* HomeTests.swift */; };
+		43480AB7287C75B300E09BE2 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43480AB5287C75B300E09BE2 /* FeedTableViewCell.swift */; };
+		43480AB8287C75B300E09BE2 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43480AB6287C75B300E09BE2 /* FeedTableViewCell.xib */; };
 		43831CFE287C2F4C0024D16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831CFD287C2F4C0024D16C /* AppDelegate.swift */; };
 		43831D00287C2F4C0024D16C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43831CFF287C2F4C0024D16C /* SceneDelegate.swift */; };
 		43831D07287C2F4F0024D16C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43831D06287C2F4F0024D16C /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		43480AAE287C37C300E09BE2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		43480AB0287C37ED00E09BE2 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		43480AB2287C3C0700E09BE2 /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
+		43480AB5287C75B300E09BE2 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		43480AB6287C75B300E09BE2 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		43831CFA287C2F4C0024D16C /* Nous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43831CFD287C2F4C0024D16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43831CFF287C2F4C0024D16C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 				43480AAE287C37C300E09BE2 /* HTTPError.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		43480AB4287C759800E09BE2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				43480AB5287C75B300E09BE2 /* FeedTableViewCell.swift */,
+				43480AB6287C75B300E09BE2 /* FeedTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		43831CF1287C2F4C0024D16C = {
@@ -194,6 +207,7 @@
 		43831D31287C30FE0024D16C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				43480AB4287C759800E09BE2 /* Cell */,
 				43831D38287C31680024D16C /* HomeModel.swift */,
 				43831D32287C31140024D16C /* HomeViewController.swift */,
 				43831D33287C31140024D16C /* HomeViewController.xib */,
@@ -325,6 +339,7 @@
 			files = (
 				43831D0A287C2F4F0024D16C /* LaunchScreen.storyboard in Resources */,
 				43831D07287C2F4F0024D16C /* Assets.xcassets in Resources */,
+				43480AB8287C75B300E09BE2 /* FeedTableViewCell.xib in Resources */,
 				43831D35287C31140024D16C /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +371,7 @@
 				43480AAA287C369E00E09BE2 /* FeedsService.swift in Sources */,
 				43831D30287C30B90024D16C /* Nibbable.swift in Sources */,
 				43831D39287C31680024D16C /* HomeModel.swift in Sources */,
+				43480AB7287C75B300E09BE2 /* FeedTableViewCell.swift in Sources */,
 				43831CFE287C2F4C0024D16C /* AppDelegate.swift in Sources */,
 				43480AAD287C36F800E09BE2 /* FeedResponse.swift in Sources */,
 				43831D3D287C319C0024D16C /* HomeAssembly.swift in Sources */,
