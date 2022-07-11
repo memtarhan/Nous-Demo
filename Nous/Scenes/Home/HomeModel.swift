@@ -9,5 +9,7 @@
 import Foundation
 
 class HomeModel {
-    
+    func fetchFeeds() async throws -> [FeedResponse] {
+        return try await FeedsService.shared.fetchFeeds().feeds
+    }
 }
