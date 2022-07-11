@@ -32,7 +32,6 @@ class HomeViewController: UIViewController, Nibbable {
 
         tableView.delegate = self
         tableView.dataSource = dataSource
-        tableView.rowHeight = 128
 
         viewModel.snapshot
             .receive(on: DispatchQueue.main)
@@ -43,7 +42,9 @@ class HomeViewController: UIViewController, Nibbable {
             } receiveValue: { [weak self] snapshot in
                 guard let self = self else { return }
 
-                self.dataSource.apply(snapshot, animatingDifferences: false)
+                DispatchQueue.main.async {
+                    self.dataSource.apply(snapshot, animatingDifferences: false)
+                }
             }
             .store(in: &cancellables)
         
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController, Nibbable {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.reuseIdentifier, for: indexPath) as? FeedTableViewCell
             else { return UITableViewCell() }
 
+            cell.tag = indexPath.row
             cell.configure(model)
 
             return cell
