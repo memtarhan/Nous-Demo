@@ -32,6 +32,11 @@ class HomeViewController: UIViewController, Nibbable {
     private func setup() {
         title = "Nous"
 
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+
         let cell = UINib(nibName: FeedTableViewCell.nibIdentifier, bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: FeedTableViewCell.reuseIdentifier)
 
@@ -99,4 +104,25 @@ extension HomeViewController: UITableViewDelegate {
 // MARK: - MFMailComposeViewControllerDelegate
 
 extension HomeViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+
+extension HomeViewController: UISearchControllerDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarCancelButtonClicked")
+        viewModel.searchedKeyword.send("")
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("textDidChange: \(searchText)")
+        viewModel.searchedKeyword.send(searchText)
+    }
 }

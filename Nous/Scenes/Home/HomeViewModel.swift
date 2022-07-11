@@ -29,6 +29,21 @@ class HomeViewModel {
     init() {
         snapshot.value.appendSections([.feed])
 
+        searchedKeyword
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
+            .sink { [weak self] keyword in
+                guard let self = self else { return }
+
+                guard keyword != "" else {
+                    self.update(self.feedModels)
+                    return
+                }
+
+                let models = self.feedModels.filter { $0.title.contains(keyword) || $0.description.contains(keyword) }
+                self.update(models)
+            }
+            .store(in: &cancellables)
+
         load.sink { [weak self] _ in
             guard let self = self else { return }
             Task {
@@ -40,9 +55,9 @@ class HomeViewModel {
                                          description: model.description,
                                          image: URL(string: model.imageUrl))
                     }
+
                     self.feedModels = displayModels
-                    self.snapshot.value.appendItems(displayModels, toSection: .feed)
-                    self.snapshot.send(self.snapshot.value)
+                    self.update(displayModels)
 
                 } catch {
                     // TODO: Display error
@@ -59,5 +74,12 @@ class HomeViewModel {
             self.willSendEmail.send(mail)
         }
         .store(in: &cancellables)
+    }
+
+    private func update(_ displayModels: [FeedDisplayModel]) {
+        snapshot.value.deleteAllItems()
+        snapshot.value.appendSections([.feed])
+        snapshot.value.appendItems(displayModels, toSection: .feed)
+        snapshot.send(snapshot.value)
     }
 }
