@@ -8,19 +8,48 @@
 
 @testable import Nous
 import XCTest
+import Combine
 
 class HomeTests: XCTestCase {
-    
     var model: HomeModel!
+    var view: HomeViewController!
+    var viewModel: HomeViewModel!
     
+    private var cancellables: Set<AnyCancellable> = []
+
+
     override func setUpWithError() throws {
         model = HomeModel()
+        view = HomeViewController.instantiate()
+        viewModel = HomeViewModel()
+
+        view.viewModel = viewModel
+        viewModel.view = view
+        viewModel.model = model
     }
 
     override func tearDownWithError() throws {
         model = nil
+        view = nil
+        viewModel = nil
     }
 
+    func testViewModelIfFetchesFeeds() async throws {
+        let expectation = self.expectation(description: "testViewModelIfFetchesFeeds")
+        
+        await viewModel.loadInitialData()
+        
+        viewModel.snapshot.sink { _ in
+            expectation.fulfill()
+        }
+        .store(in: &cancellables)
+        
+        
+        await waitForExpectations(timeout: 5.0)
+        
+        XCTAssertFalse(viewModel.feedModels.isEmpty, "Feeds should not be empty after fetching")
+    }
+    
     func testModelIfFetchesFeeds() async throws {
         do {
             let feeds = try await model.fetchFeeds()

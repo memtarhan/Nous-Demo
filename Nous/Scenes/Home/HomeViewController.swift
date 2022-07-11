@@ -65,6 +65,7 @@ class HomeViewController: UIViewController, Nibbable {
             .sink { [weak self] mail in
                 guard let self = self else { return }
 
+                // MARK: - Requires real device with Apple Mail app installed
                 if MFMailComposeViewController.canSendMail() {
                     let mailComposeViewController = MFMailComposeViewController()
                     mailComposeViewController.mailComposeDelegate = self

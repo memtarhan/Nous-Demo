@@ -24,7 +24,7 @@ class HomeViewModel {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    private var feedModels: [FeedDisplayModel] = []
+    private(set) var feedModels: [FeedDisplayModel] = []
 
     init() {
         snapshot.value.appendSections([.feed])
@@ -47,21 +47,7 @@ class HomeViewModel {
         load.sink { [weak self] _ in
             guard let self = self else { return }
             Task {
-                do {
-                    let models = try await self.model.fetchFeeds()
-                    let displayModels = models.map { model in
-                        FeedDisplayModel(id: model.id,
-                                         title: model.title,
-                                         description: model.description,
-                                         image: URL(string: model.imageUrl))
-                    }
-
-                    self.feedModels = displayModels
-                    self.update(displayModels)
-
-                } catch {
-                    // TODO: Display error
-                }
+                await self.loadInitialData()
             }
         }
         .store(in: &cancellables)
@@ -74,6 +60,24 @@ class HomeViewModel {
             self.willSendEmail.send(mail)
         }
         .store(in: &cancellables)
+    }
+
+    func loadInitialData() async {
+        do {
+            let models = try await model.fetchFeeds()
+            let displayModels = models.map { model in
+                FeedDisplayModel(id: model.id,
+                                 title: model.title,
+                                 description: model.description,
+                                 image: URL(string: model.imageUrl))
+            }
+
+            feedModels = displayModels
+            update(displayModels)
+
+        } catch {
+            // TODO: Display error
+        }
     }
 
     private func update(_ displayModels: [FeedDisplayModel]) {
